@@ -1,17 +1,20 @@
 let books=[]
-function BookMake(name,author,pages,read){
+function BookMake(name,author,pages,read,id){
     this.name=name
-    this,author=author
+    this.author=author
     this.pages=pages
-    this.id=crypto.randomUUID()
     this.read=read
+    this.id=id
 }
 function addLibro(name,author,pages,read){
-    let adder= new BookMake(name,author,pages,read)
-    display(name,author,pages,read)
+    let ref=crypto.randomUUID()
+    let id=ref
+    let adder= new BookMake(name,author,pages,read,id)
+    ref=adder
+    display(name,author,pages,read,ref)
     books.push(adder)
 }
-let display=function(name,author,pages,read){
+let display=function(name,author,pages,read,ref,id){
     let tab=document.createElement("div")
     let check=document.createElement("div")
     tab.style.display="flex"
@@ -29,7 +32,11 @@ let display=function(name,author,pages,read){
     readCheck.type="checkbox"
     remove.addEventListener("click",() =>{
         tab.remove()
+        books=books.filter(item => item.id !== ref.id)
     })
+    if (read){
+        readCheck.checked=true
+    }
     readCheck.id=`${name}`
     readLabel.htmlFor=`${name}`
     readLabel.textContent="Read"
@@ -46,6 +53,16 @@ let display=function(name,author,pages,read){
     tab.append(check)
     tab.append(remove)
     block.append(tab)
+    readCheck.addEventListener("click", () =>{
+        if (readCheck.checked==true){
+            ref.read=true
+            console.log(ref)
+        }
+        else{
+            ref.read=false
+            console.log(ref)
+        }
+    })
 }
 let newBook=document.querySelector("#new")
 newBook.addEventListener("click", () =>{
@@ -55,9 +72,14 @@ newBook.addEventListener("click", () =>{
     while (!/^\d+$/.test(pages)){
         pages=parseInt(prompt("How many pages?"))
     }
-    let read=confirm("Have you read this book?")
+    let read=confirm("Press OK if you have read this book.")
+    if (read){
+        read=true
+    }
+    else{
+        read=false
+    }
     addLibro(name,author,pages,read)
+    console.log(books)
 })
-addLibro("harry","jk",100,"yep")
-addLibro("jaws","cool man",1000,"nope")
 console.log(books)
