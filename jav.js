@@ -47,6 +47,17 @@ let display=function(name,author,pages,read){
     tab.append(remove)
     block.append(tab)
 }
+let newBook=document.querySelector("#new")
+newBook.addEventListener("click", () =>{
+    let name=prompt("Name of the book?")
+    let author=prompt("Who's the auhtor?")
+    let pages="a"
+    while (!/^\d+$/.test(pages)){
+        pages=parseInt(prompt("How many pages?"))
+    }
+    let read=confirm("Have you read this book?")
+    addLibro(name,author,pages,read)
+})
 addLibro("harry","jk",100,"yep")
 addLibro("jaws","cool man",1000,"nope")
 console.log(books)

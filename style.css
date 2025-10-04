@@ -3,7 +3,12 @@ body{
     width:100vw;
 }
 #display{
+    gap:10px;
     display: flex;
     background-color: beige;
+    justify-self: center;
+}
+#new{
+    display: flex;
     justify-self: center;
 }
