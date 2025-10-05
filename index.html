@@ -10,30 +10,30 @@
 <body>
     <h1>Welcome to your very own Libro library!</h1>
     <div id="display"></div>
-    <button id="new">New book</button>
-    <button id="diag">Show diag</button>
+    <button id="diag">New book</button>
     <dialog>
-        <form>
+        <form method="post" id="bookForm">
             <label for="bookName">Name of book</label>
             <br>
-            <input type="text" name="name" id="bookName">
+            <input type="text" name="name" id="bookName" required>
             <br>
             <label for="author">Author of the book</label>
             <br>
-            <input type="text" name="author" id="author">
+            <input type="text" name="author" id="author" required>
             <br>
             <label for="bookPages">Number of pages in book</label>
             <br>
-            <input type="number" name="pages" id="bookPages">
+            <input type="number" name="pages" id="bookPages" required>
             <br>
             <legend>Have you read this book before?</legend>
-            <input type="radio" id="readCheck1" name="read" value="true">
+            <input type="radio" id="readCheck1" name="read" value="true" checked>
             <label for="readCheck1">Yes</label>
             <br>
             <input type="radio" id="readCheck2" name="read" value="false">
             <label for="readCheck2">No</label>
             <br>
-            <input type="submit">
+            <button type="submit">Create book</button>
+            <button type="button" id="cancel">Cancel</button>
         </form>
     </dialog>
 </body>

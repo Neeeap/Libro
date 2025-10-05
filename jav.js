@@ -68,28 +68,30 @@ let display=function(name,author,pages,read,ref,id){
         }
     })
 }
-let newBook=document.querySelector("#new")
-newBook.addEventListener("click", () =>{
-    let name=prompt("Name of the book?")
-    let author=prompt("Who's the auhtor?")
-    let pages="a"
-    while (!/^\d+$/.test(pages)){
-        pages=parseInt(prompt("How many pages?"))
-    }
-    let read=confirm("Press OK if you have read this book.")
-    if (read){
+let buttDiag=document.querySelector("#diag")
+let diag=document.querySelector("dialog")
+buttDiag.addEventListener("click", () =>{
+    diag.showModal()
+})
+let form=document.querySelector("#bookForm")
+form.addEventListener("submit", function(event){
+    event.preventDefault()
+    let name=document.querySelector("#bookName").value
+    let author=document.querySelector("#author").value
+    let pages=document.querySelector("#bookPages").value
+    let read=document.querySelector('input[name="read"]:checked').value
+    if (read=="true"){
         read=true
     }
     else{
         read=false
     }
     addLibro(name,author,pages,read)
-    console.log(books)
+    form.reset()
 })
-let buttDiag=document.querySelector("#diag")
-let diag=document.querySelector("dialog")
-buttDiag.addEventListener("click", () =>{
-    diag.showModal()
+document.querySelector("#cancel").addEventListener("click", () =>{
+    diag.close()
+    form.reset()
 })
 addLibro("sadfdsfad","DFSdsafdsaf",11,true)
 addLibro("sadfdsfad","DFSdsafdsaf",11,true)
