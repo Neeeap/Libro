@@ -8,7 +8,33 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+    <h1>Welcome to your very own Libro library!</h1>
     <div id="display"></div>
     <button id="new">New book</button>
+    <button id="diag">Show diag</button>
+    <dialog>
+        <form>
+            <label for="bookName">Name of book</label>
+            <br>
+            <input type="text" name="name" id="bookName">
+            <br>
+            <label for="author">Author of the book</label>
+            <br>
+            <input type="text" name="author" id="author">
+            <br>
+            <label for="bookPages">Number of pages in book</label>
+            <br>
+            <input type="number" name="pages" id="bookPages">
+            <br>
+            <legend>Have you read this book before?</legend>
+            <input type="radio" id="readCheck1" name="read" value="true">
+            <label for="readCheck1">Yes</label>
+            <br>
+            <input type="radio" id="readCheck2" name="read" value="false">
+            <label for="readCheck2">No</label>
+            <br>
+            <input type="submit">
+        </form>
+    </dialog>
 </body>
 </html>
