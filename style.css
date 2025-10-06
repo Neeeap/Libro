@@ -16,4 +16,8 @@ h1{
     display: flex;
     justify-self: center;
     font-size: large;
+    margin-top: 20px;
+}
+input,legend{
+    margin-bottom: 10px;
 }

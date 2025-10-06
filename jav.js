@@ -26,12 +26,14 @@ let display=function(name,author,pages,read,ref,id){
     readCheck.type="checkbox"
     tab.style.display="flex"
     tab.style.width= "200px"
-    tab.style.height="200px"
+    tab.style.height="fit-content"
+    tab.style.overflowWrap="break-word"
     tab.style.flexDirection="column"
     tab.style.alignContent="center"
     tab.style.textAlign="center"
     tab.style.backgroundColor="beige"
     tab.style.borderRadius="20px"
+    tab.style.boxShadow="5px 5px 2px black"
     remove.style.width="100px"
     remove.style.alignSelf="center"
     remove.addEventListener("click",() =>{
@@ -60,11 +62,9 @@ let display=function(name,author,pages,read,ref,id){
     readCheck.addEventListener("click", () =>{
         if (readCheck.checked==true){
             ref.read=true
-            console.log(ref)
         }
         else{
             ref.read=false
-            console.log(ref)
         }
     })
 }
@@ -87,18 +87,10 @@ form.addEventListener("submit", function(event){
         read=false
     }
     addLibro(name,author,pages,read)
+    diag.close()
     form.reset()
 })
 document.querySelector("#cancel").addEventListener("click", () =>{
     diag.close()
     form.reset()
 })
-addLibro("sadfdsfad","DFSdsafdsaf",11,true)
-addLibro("sadfdsfad","DFSdsafdsaf",11,true)
-addLibro("sadfdsfad","DFSdsafdsaf",11,true)
-addLibro("sadfdsfad","DFSdsafdsaf",11,true)
-addLibro("sadfdsfad","DFSdsafdsaf",11,true)
-addLibro("sadfdsfad","DFSdsafdsaf",11,true)
-addLibro("sadfdsfad","DFSdsafdsaf",11,true)
-addLibro("sadfdsfad","DFSdsafdsaf",11,true)
-console.log(books)
