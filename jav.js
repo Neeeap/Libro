@@ -1,11 +1,15 @@
-let books=[]
-function BookMake(name,author,pages,read,id){
+class BookMake{
+    constructor(ame,author,pages,read,id){
     this.name=name
     this.author=author
     this.pages=pages
     this.read=read
     this.id=id
+    }
 }
+
+
+
 function addLibro(name,author,pages,read){
     let ref=crypto.randomUUID()
     let id=ref
