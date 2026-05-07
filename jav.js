@@ -1,5 +1,6 @@
+books=[]
 class BookMake{
-    constructor(ame,author,pages,read,id){
+    constructor(name,author,pages,read,id){
     this.name=name
     this.author=author
     this.pages=pages
@@ -13,7 +14,7 @@ class BookMake{
 function addLibro(name,author,pages,read){
     let ref=crypto.randomUUID()
     let id=ref
-    let adder= new BookMake(name,author,pages,read,id)
+    let adder= new BookMake()
     ref=adder
     display(name,author,pages,read,ref)
     books.push(adder)
